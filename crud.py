@@ -32,7 +32,11 @@ def get_items(db: Session, skip: int = 0, limit: int = 100):
 
 
 def get_products(db: Session, list_id: list[int]):
-    return db.query(models.Product).filter(models.User.id.in_(list_id))
+    return db.query(models.Product).filter(models.Product.id.in_(list_id))
+
+
+def get_products_by_order_id(db: Session, id:int):
+    return db.query(models.Order).get(id).products
 
 
 def create_order(db: Session, order: schemas.OrderCreate, total_amount: float):

@@ -41,7 +41,7 @@ class OrderCreate(OrderBase):
 
 class Order(OrderBase):
     id: int
-    owner_id: int
+    # owner_id: int
     amount: float
     order_id: uuid.UUID
 
